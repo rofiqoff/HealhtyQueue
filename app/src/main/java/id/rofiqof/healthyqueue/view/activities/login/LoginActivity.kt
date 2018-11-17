@@ -1,4 +1,4 @@
-package id.rofiqof.healthyqueue.view
+package id.rofiqof.healthyqueue.view.activities.login
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -6,11 +6,14 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 import id.rofiqof.healthyqueue.R
+import id.rofiqof.healthyqueue.utils.AppWireframe
 import id.rofiqof.healthyqueue.utils.disable
 import id.rofiqof.healthyqueue.utils.enable
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
+
+    val wireframe by lazy { AppWireframe() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +24,8 @@ class LoginActivity : AppCompatActivity() {
     private fun initView() {
         actionEditText(edt_password)
         actionEditText(edt_username)
+
+        btn_login?.setOnClickListener { wireframe.home.toView(this) }
     }
 
     private fun actionEditText(view: EditText?) {

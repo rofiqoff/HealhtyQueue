@@ -4,4 +4,6 @@
     <string name="image_desc">image description</string>
     <string name="text_masukkan_password">Tulis password Anda disini</string>
     <string name="text_masukkan_username">Masukkan username</string>
+
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 </resources>
