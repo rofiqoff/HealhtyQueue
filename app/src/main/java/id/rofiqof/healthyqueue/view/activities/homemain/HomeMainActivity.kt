@@ -41,6 +41,7 @@ class HomeMainActivity : AppCompatActivity() {
     private fun initToolbar() {
         setSupportActionBar(toolbar)
         supportActionBar?.title = getString(R.string.app_name)
+        supportActionBar?.setIcon(R.drawable.ic_logo)
         supportActionBar?.setHomeButtonEnabled(false)
     }
 

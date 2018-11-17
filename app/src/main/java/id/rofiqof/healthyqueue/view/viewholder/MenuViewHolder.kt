@@ -10,8 +10,14 @@ class MenuViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val wireframe by lazy { AppWireframe() }
 
     fun onBind(feature: Feature?) {
-        itemView.title_menu?.text = feature?.title
+        val title = feature?.title
+        val icon = feature?.icon
 
-        itemView.rootView?.setOnClickListener {  }
+        itemView.title_menu?.text = title
+        feature?.icon?.let { itemView.icon_menu?.setImageResource(it) }
+
+        itemView.rootView?.setOnClickListener {
+            wireframe.detail.toView(itemView.context, title, icon)
+        }
     }
 }
