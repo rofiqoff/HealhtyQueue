@@ -25,7 +25,8 @@
             android:name=".view.activities.detail.DetailActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".view.activities.detailantrian.DetailAntrianActivity" />
-        <activity android:name=".view.activities.barcode.BarcodeActivity"></activity>
+        <activity android:name=".view.activities.barcode.BarcodeActivity" />
+        <activity android:name=".view.activities.setting.SettingActivity"></activity>
     </application>
 
 </manifest>
