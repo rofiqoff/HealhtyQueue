@@ -6,4 +6,5 @@
     <string name="text_masukkan_username">Masukkan username</string>
 
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="icon_desc" translatable="false">icon desc</string>
 </resources>

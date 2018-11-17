@@ -91,7 +91,7 @@ class HomeMainActivity : AppCompatActivity() {
         iconTab = view?.icon_tab
 
         titleTab?.setTextColor(Color.WHITE)
-        iconTab?.setColorFilter(Color.parseColor("#FFFFFF"), PorterDuff.Mode.SRC_ATOP)
+        iconTab?.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP)
 
     }
 

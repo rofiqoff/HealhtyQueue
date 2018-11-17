@@ -9,6 +9,7 @@ import java.lang.reflect.InvocationTargetException
 abstract class Adapter<TipeData, ViewHolder : RecyclerView.ViewHolder>(
         protected var mLayout: Int,
         private var mViewHolderClass: Class<ViewHolder>,
+        private var modelClass: Class<TipeData>,
         private var mData: MutableList<TipeData>) : RecyclerView.Adapter<ViewHolder>() {
 
     fun addData(data: TipeData) {
