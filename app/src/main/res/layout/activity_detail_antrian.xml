@@ -109,7 +109,7 @@
             android:layout_marginBottom="16dp"
             android:layout_weight="1"
             android:background="@drawable/shape_radius"
-            android:text="Lihat Barcode" />
+            android:text="Scan Barcode" />
 
     </LinearLayout>
 

@@ -2,13 +2,16 @@ package id.rofiqof.healthyqueue.view.activities.homemain
 
 import android.graphics.Color
 import android.graphics.PorterDuff
+import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.support.design.widget.TabLayout
 import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import id.rofiqof.healthyqueue.R
 import id.rofiqof.healthyqueue.utils.AppWireframe
 import id.rofiqof.healthyqueue.utils.FragmentAdapter
@@ -27,10 +30,34 @@ class HomeMainActivity : AppCompatActivity() {
     var titleTab: TextView? = null
     var iconTab: ImageView? = null
 
+    var lastPosition = 0
+    var doubleBackToExitPressedOnce = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_main)
         initView()
+    }
+
+    override fun onBackPressed() {
+        if (lastPosition == 0){
+
+            if (doubleBackToExitPressedOnce) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    finishAffinity()
+                }
+            } else {
+                this.doubleBackToExitPressedOnce = true
+                Toast.makeText(this, "Klik sekali lagi untuk keluar aplikasi",
+                    Toast.LENGTH_SHORT).show()
+                Handler().postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)
+            }
+
+        } else {
+            setOnSelectedView(tab_layout, 0)
+            tab_layout?.getTabAt(0)?.select()
+        }
+
     }
 
     private fun initView() {
@@ -85,6 +112,8 @@ class HomeMainActivity : AppCompatActivity() {
     }
 
     private fun setOnSelectedView(tabLayout: TabLayout, posisi: Int) {
+        lastPosition = posisi
+
         val tab = tabLayout.getTabAt(posisi)
         val view = tab?.customView
 

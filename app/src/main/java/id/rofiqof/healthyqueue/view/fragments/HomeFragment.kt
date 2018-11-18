@@ -14,12 +14,14 @@ import id.rofiqof.healthyqueue.models.Feature
 import id.rofiqof.healthyqueue.models.HomeMenu
 import id.rofiqof.healthyqueue.utils.Adapter
 import id.rofiqof.healthyqueue.view.viewholder.MenuViewHolder
+import id.rofiqof.healthyqueue.utils.Utils
+import id.rofiqof.healthyqueue.utils.SessionData
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
 class HomeFragment : Fragment() {
 
-//    private val sliderView by lazy { SliderView(activity) }
+    private val saldoUser = 100000
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -36,6 +38,9 @@ class HomeFragment : Fragment() {
     private fun iniView() {
         initSlider()
         initMenu()
+
+        SessionData(context!!).updateSaldo(saldoUser)
+        saldo?.text = Utils().setFormatRupiahWithoutRp(saldoUser)
     }
 
     private fun initSlider() {
@@ -52,21 +57,18 @@ class HomeFragment : Fragment() {
 
             when (i) {
                 0 -> sliderView.imageUrl =
-                        "https://images.pexels.com/photos/547114/pexels-photo-547114.jpeg?auto=compress&cs=tinysrgb&dpr=1&h=20&w=260"
+                        "https://images.pexels.com/photos/547114/pexels-photo-547114.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                 1 -> sliderView.imageUrl =
-                        "https://images.pexels.com/photos/218983/pexels-photo-218983.jpeg?auto=compress&cs=tinysrgb&dpr=1&h=50&w=360"
+                        "https://images.pexels.com/photos/218983/pexels-photo-218983.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                 2 -> sliderView.imageUrl =
-                        "https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&dpr=1&h=50&w=360"
+                        "https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
                 3 -> sliderView.imageUrl =
-                        "https://images.pexels.com/photos/929778/pexels-photo-929778.jpeg?auto=compress&cs=tinysrgb&dpr=1&h=50&w=360"
+                        "https://images.pexels.com/photos/929778/pexels-photo-929778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
             }
 
             sliderView.setImageScaleType(ImageView.ScaleType.CENTER_CROP)
-            sliderView.setOnSliderClickListener {
-                //                Toast.makeText(activity, "This is slider " + (i + 1), Toast.LENGTH_SHORT).show()
-            }
+            sliderView.setOnSliderClickListener {}
 
-            //at last add this view in your layout :
             image_slider?.addSliderView(sliderView)
         }
     }
