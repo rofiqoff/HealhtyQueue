@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import android.widget.EditText
 import id.rofiqof.healthyqueue.R
 import id.rofiqof.healthyqueue.utils.AppWireframe
+import id.rofiqof.healthyqueue.utils.SessionData
 import id.rofiqof.healthyqueue.utils.disable
 import id.rofiqof.healthyqueue.utils.enable
 import kotlinx.android.synthetic.main.activity_login.*
@@ -25,7 +26,14 @@ class LoginActivity : AppCompatActivity() {
         actionEditText(edt_password)
         actionEditText(edt_username)
 
-        btn_login?.setOnClickListener { wireframe.home.toView(this) }
+        if (SessionData(baseContext).isLogin()) {
+            wireframe.home.toView(baseContext)
+        }
+
+        btn_login?.setOnClickListener {
+            SessionData(baseContext).setLogin(true)
+            wireframe.home.toView(this); finish()
+        }
     }
 
     private fun actionEditText(view: EditText?) {

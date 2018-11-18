@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp">
 
     <LinearLayout
         android:id="@+id/ln_profil"
@@ -53,10 +55,12 @@
         android:id="@+id/parent_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/ln_profil"
+        android:layout_marginLeft="4dp"
         android:layout_marginTop="16dp"
+        android:layout_marginRight="4dp"
         app:cardCornerRadius="16dp"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true">
+        app:cardElevation="4dp">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -81,9 +85,12 @@
         android:id="@+id/parent_hp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/parent_email"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="4dp"
         app:cardCornerRadius="16dp"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true">
+        app:cardElevation="4dp">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -108,10 +115,15 @@
         android:id="@+id/parent_setting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_below="@id/parent_hp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="4dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
         app:cardCornerRadius="16dp"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true">
+        app:cardElevation="4dp">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -132,4 +144,17 @@
 
     </android.support.v7.widget.CardView>
 
-</LinearLayout>
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/shape_radius_red"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="Logout"
+        android:textColor="#f91111"
+        android:textSize="16sp" />
+
+</RelativeLayout>

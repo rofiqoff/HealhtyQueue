@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
@@ -8,36 +9,65 @@
 
     <include layout="@layout/toolbar" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/text_ubah_profil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Ubah profil"
+            android:textSize="16sp" />
 
         <android.support.v7.widget.CardView
             android:id="@+id/parent_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_below="@id/text_ubah_profil"
             app:cardCornerRadius="16dp"
             app:cardElevation="4dp"
             app:cardUseCompatPadding="true">
 
-            <FrameLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp">
 
-                <TextView
+                <EditText
                     android:id="@+id/email_akun"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_toStartOf="@id/clear_email"
+                    android:layout_toLeftOf="@id/clear_email"
+                    android:background="@android:color/transparent"
                     android:drawableStart="@drawable/ic_email_gray"
                     android:drawableLeft="@drawable/ic_email_gray"
                     android:drawablePadding="16dp"
                     android:gravity="center_vertical"
-                    android:text="rofiqof@gmail.com" />
+                    android:hint="Masukkan email"
+                    android:inputType="textEmailAddress"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    tools:text="rofiqof@gmail.com" />
 
-            </FrameLayout>
+                <ImageView
+                    android:id="@+id/clear_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/icon_desc"
+                    android:src="@drawable/ic_clear_gray"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
 
         </android.support.v7.widget.CardView>
 
@@ -45,29 +75,118 @@
             android:id="@+id/parent_hp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/parent_email"
             app:cardCornerRadius="16dp"
             app:cardElevation="4dp"
             app:cardUseCompatPadding="true">
 
-            <FrameLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp">
 
-                <TextView
+                <EditText
                     android:id="@+id/no_hp_akun"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_toStartOf="@id/clear_hp"
+                    android:layout_toLeftOf="@id/clear_hp"
+                    android:background="@android:color/transparent"
                     android:drawableStart="@drawable/ic_phone_android_gray"
                     android:drawableLeft="@drawable/ic_phone_android_gray"
                     android:drawablePadding="16dp"
                     android:gravity="center_vertical"
-                    android:text="081934934294" />
+                    android:hint="Masukkan nomor hp"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    tools:text="081934934294" />
 
-            </FrameLayout>
+                <ImageView
+                    android:id="@+id/clear_hp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/icon_desc"
+                    android:src="@drawable/ic_clear_gray"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
 
         </android.support.v7.widget.CardView>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/text_ubah_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/parent_hp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:text="Ubah Password"
+            android:textSize="16sp" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/parent_ubah_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_ubah_password"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <EditText
+                    android:id="@+id/password_akun"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@id/clear_password"
+                    android:layout_toLeftOf="@id/clear_password"
+                    android:background="@android:color/transparent"
+                    android:drawableStart="@drawable/ic_keyboard_gray"
+                    android:drawableLeft="@drawable/ic_keyboard_gray"
+                    android:drawablePadding="16dp"
+                    android:gravity="center_vertical"
+                    android:hint="Masukkan password baru"
+                    android:inputType="textPassword"
+                    android:lines="1"
+                    android:maxLines="1" />
+
+                <ImageView
+                    android:id="@+id/clear_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/icon_desc"
+                    android:src="@drawable/ic_clear_gray"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <Button
+            android:id="@+id/btn_simpan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/shape_radius_green"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="Simpan"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
 
 </LinearLayout>

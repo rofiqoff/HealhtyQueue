@@ -3,4 +3,11 @@
     <color name="colorPrimary">#30ab2a</color>
     <color name="colorPrimaryDark">#2ea134</color>
     <color name="colorAccent">#30ab2a</color>
+
+    <color name="sekizbit_switch_background">#d8d8d8</color>
+    <color name="sekizbit_switch_stroke">#d8d8d8</color>
+    <color name="sekizbit_switch_thumb">#ffffff</color>
+
+    <color name="sekizbit_switch_text_selected">@android:color/black</color>
+    <color name="sekizbit_switch_text_unselected">#9b9b9b</color>
 </resources>
